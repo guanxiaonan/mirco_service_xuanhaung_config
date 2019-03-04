@@ -1,0 +1,38 @@
+spring:
+
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://101.132.44.253:3306/yixianproject?useSSL=false
+    username: root
+    password: 123456
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+
+ribbon:
+  ReadTimeout: 20000
+  ConnectTimeout: 20000
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+
+server:
+  port: 8769
+
+zuul:
+  routes:
+    service-notification:
+      path: /notification/**
+      serviceId: service-notification
+#      stripPrefix: false
+#    api-a:
+#      path: /api-a/**
+#      serviceId: service-notification
+#      stripPrefix: false
+#    api-b:
+#      path: /api-b/**
+#      serviceId: service-notification
+

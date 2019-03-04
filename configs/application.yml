@@ -1,0 +1,49 @@
+logging:
+  level:
+    org.springframework.security: INFO
+
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 10000
+
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    registerWithEureka: true
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone: http://registry:8761/eureka/
+
+security:
+  oauth2:
+    resource:
+      user-info-uri: http://auth-service:5000/uaa/users/current
+
+#实现消息总线
+spring:
+  redis:
+        # redis数据库索引（默认为0），我们使用索引为3的数据库，避免和其他数据库冲突
+        database: 5
+        # redis服务器地址（默认为localhost）
+        host: 101.132.44.253
+        # redis端口（默认为6379）
+        port: 6379
+        # redis访问密码（默认为空）
+        password:
+        # redis连接超时时间（单位为毫秒）
+        timeout: 0
+        # redis连接池配置
+        pool:
+          # 最大可用连接数（默认为8，负数表示无限）
+          max-active: 8
+          # 最大空闲连接数（默认为8，负数表示无限）
+          max-idle: 8
+          # 最小空闲连接数（默认为0，该值只有为正数才有作用）
+          min-idle: 0
+          # 从连接池中获取连接最大等待时间（默认为-1，单位为毫秒，负数表示无限）
+          max-wait: -1
