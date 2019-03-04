@@ -9,10 +9,10 @@ spring:
     password: 123456
 server:
   port: 9105
-eureka:
-  client:
-    service-url:
-      defaultZone: http://localhost:9100/eureka/
+#eureka:
+#  client:
+#    service-url:
+#      defaultZone: http://localhost:9100/eureka/
 
 
 
